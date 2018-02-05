@@ -1,10 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { Provider } from 'react-redux'
-import configureStore from "./react-redux/stores/configureStore";
-import App from "./react-redux/containers/App";
-const stores = configureStore();
+import {connect, Provider} from 'react-redux'
+import {getStore} from "./my-redex/stores";
+import App from "./my-redex/container/App";
 // console.log("initial state: ", store.getState());
 //
 // let unsubscribe = store.subscribe(() =>
@@ -18,8 +17,70 @@ const stores = configureStore();
 //
 // unsubscribe();
 
+
+
+//定义组件
+// class App extends Component{
+//     render() {
+//         const {text, onChangeText, onButtonClick} = this.props;
+//         return (
+//             <div>
+//                 <h1 onClick={onChangeText}> {text} </h1>
+//                 <button onClick={onButtonClick}>click me</button>
+//             </div>
+//         );
+//     }
+// }
+//
+//
+// //action
+// const changeTextAction = {
+//     type:'CHANGE_TEXT'
+// }
+// const buttonClickAction = {
+//     type:'BUTTON_CLICK'
+// }
+//
+//
+// //reducer
+// const initialState = {
+//     text: 'Hello'
+// }
+// const reducer = (state = initialState, action) => {
+//     switch (action.type) {
+//         case 'CHANGE_TEXT':
+//             return {
+//                 text: state.text=='Hello' ? 'world':'Hello'
+//             }
+//         case 'BUTTON_CLICK':
+//             return {
+//                 text: 'Hello world'
+//             }
+//         default:
+//             return initialState;
+//     }
+// }
+//
+// //store
+// let store = createStore(reducer);
+//
+// //映射Redux state到组件的属性
+// function mapStateToProps(state) {
+//     return { text: state.text }
+// }
+//
+// //映射Redux actions到组件的属性
+// function mapDispatchToProps(dispatch){
+//     return{
+//         onButtonClick:()=>dispatch(buttonClickAction),
+//         onChangeText:()=>dispatch(changeTextAction)
+//     }
+// }
+//
+// //连接组件
+// App = connect(mapStateToProps, mapDispatchToProps)(App)
+let store = getStore();
 ReactDOM.render(
-    <Provider store={stores}>
+    <Provider store={store}>
         <App />
-    </Provider>
-    , document.getElementById('root'));
+    </Provider>, document.getElementById('root'));
