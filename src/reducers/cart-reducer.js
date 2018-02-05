@@ -1,4 +1,4 @@
-import  { ADD_TO_CART }  from '../actions/cart-actions';
+import {ADD_TO_CART, DEL_CART} from '../actions/cart-actions';
 
 const initialState = {
     cart: [
@@ -21,6 +21,12 @@ export default function(state=initialState, action) {
             return {
                 ...state,
                 cart: [...state.cart, action.payload]
+            }
+        }
+        case DEL_CART:{
+            return {
+                ...state,
+                ...state.cart.pop()
             }
         }
 
