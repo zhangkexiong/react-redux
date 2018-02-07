@@ -4,6 +4,11 @@ import './index.css';
 import {connect, Provider} from 'react-redux'
 import {getStore} from "./my-redex/stores";
 import App from "./my-redex/container/App";
+import {countStore} from "./counter/countStore";
+import Counter from "./counter/Counter";
+import {todoStroe} from "./todo-test/stores/todoStores";
+import TodoTest from "./todo-test/component/TodoTest";
+import TodoApp from "./todo-test/container/TodoApp";
 // console.log("initial state: ", store.getState());
 //
 // let unsubscribe = store.subscribe(() =>
@@ -79,8 +84,16 @@ import App from "./my-redex/container/App";
 //
 // //连接组件
 // App = connect(mapStateToProps, mapDispatchToProps)(App)
-let store = getStore();
+// let store = countStore();
+// console.dir(store.getState());
+// ReactDOM.render(
+//     <Provider store={store}>
+//         <Counter />
+//     </Provider>, document.getElementById('root'));
+const store = todoStroe();
+console.dir(store);
 ReactDOM.render(
     <Provider store={store}>
-        <App />
-    </Provider>, document.getElementById('root'));
+        <TodoApp />
+    </Provider>,
+    document.getElementById('root'))

@@ -14,6 +14,11 @@ class App extends Component{
     }
 }
 
+/**
+ * 将store中的数据绑定到组件props上
+ * @param state 表示的是redux中的store
+ * @returns {{text}} 表示将store中的text作为该组件的属性
+ */
 function mapStateToProps(state) {
     return {text:state.text}
 }

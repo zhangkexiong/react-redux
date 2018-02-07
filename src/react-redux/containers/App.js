@@ -8,7 +8,7 @@ class App extends React.Component{
     render(){
         const { dispatch, visibleTodos, visibilityFilter } = this.props;
         return (
-            <div>
+        <div>
                 <AddTodo
                     onAddClick={text =>
                         dispatch(addTodo(text))
