@@ -27,7 +27,7 @@ class TodoApp extends Component{
 
 function selectTodos(todos, filter) {
     alert(filter)
-    console.log(filter)
+    console.log(fil)
     switch (filter) {
         case VisibilityFiltersTest.SHOW_ALL:
             return todos;
